@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <tr> <th>Id</th><th>Nom</th> <th>Age</th><th>Profession</th><th>date d'ajout</th><th>Supprimer</th><th>Modifier</th> </tr>
+    <tbody *ngFor="let client of clients">
+    <tr >
+
+    <td>{{client.idClient}}</td>
+    <td>{{client.nomClient}}</td>
+    <td>{{client.ageClient}}</td>
+    <td>{{client.profession?.nomPro}}</td>
+    <td>{{client.dateAjout|date:"dd/mm/yyyy" }}</td>
+    <!-- *ngIf="authService.isAdmin()" -->
+    <td><a class="btn btn-danger" (click)="supprimerClient(client)">Supprimer</a></td>
+    <td><a  class="btn btn-success" [routerLink]="['/updateClient',client.idClient]">Modifier</a></td>
+
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>

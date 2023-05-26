@@ -1,0 +1,49 @@
+<br>
+<div class="container">
+    <div>
+    <h2>Update Client </h2>
+    </div>
+    <form >
+         
+    <div hidden class="col-sm-2 col-md-2 col-lg-2">
+    <label >ID Client</label>
+    <input readonly type="text" [(ngModel)]="currentClient.idClient" name="idClient" class="form-control">
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+    <label >Nom Client</label>
+    <input type="text"[(ngModel)]= "currentClient.nomClient"name="nomClient" class="form-control">
+    </div>
+    <br>
+
+    <div class="col-sm-2 col-md-2 col-lg-6">
+        <label for="exampleFormControlTextarea1">Profession Client</label>
+        <textarea class="form-control"  rows="3"  [(ngModel)]= "currentClient.ageClient" name="ageClient" ></textarea>
+      </div>
+
+      <br>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label for="exampleFormControlTextarea1">Domaine de Client</label>
+        <select class="form-control form-control-lg" id="idG" name="idG"
+        [(ngModel)]="updatedProId">
+        <option *ngFor="let pro of professions" [value]="pro.idPro" >
+        {{pro.nomPro}}
+        </option>
+        </select>
+        </div>
+
+
+<br>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+
+        <label >Date création</label>
+<input type="date" [ngModel]="currentClient.dateAjout | date: 'yyyy-MM-dd'"
+(ngModelChange)="onDateChange($event)"
+ name="dateAjout"
+ class="form-control">
+</div>
+<div class="mt-2">
+<button type="submit" (click)="updateClient()" class="btn btn-success">Modifer</button>
+</div>
+</form>
+</div>

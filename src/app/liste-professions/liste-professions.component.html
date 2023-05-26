@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+      <app-update-profession
+        [profession]="updatedPro"
+        [ajout]="ajout"
+        (professionUpdated)="professionUpdated($event)">
+      </app-update-profession>
+    </div>
+  
+    <div class="card shadow mb-4">
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nom Profession</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let pro of professions">
+            <tr>
+              <td>{{pro.nomPro}}</td>
+              <td>{{pro.idPro}}</td>
+              <td><a class="btn btn-success" (click)="updatePro(pro)">Editer</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
